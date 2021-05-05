@@ -12,8 +12,8 @@
 # Usage:
 # Set the DEDUP_BASE variable to the base directory for the deduplicated
 # hash-based names. Run with sh, passing the original filename as the first
-# argument. (Multiple files are not supported. To apply run this across all
-# files in a torrent, use "find" or another similar utility. For example:
+# argument. (Multiple files are not supported. To apply this across all files
+# in a torrent, use "find" or another similar utility. For example:
 # "find [directory] -type f -exec dedup.sh '{}' ';'")
 
 # Notes:

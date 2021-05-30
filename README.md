@@ -25,7 +25,12 @@ A simple deduplication system ensures that only a single copy of a file is store
 
 This system consists of a special "dedup" directory that contains files named by their hashes. Currently, the hash algorithm is SHA-256, and there are subdirectories for the first four hex digits. (For example, the empty file would be stored at `dedup/e3b0/c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.) The actual download directory for the BitTorrent client contains symbolic links to the files in the dedup directory.
 
-The script in `opt/rainwatertornado/dedup.sh` adds/finds a file in the dedup directory and replaces the original with a symbolic link. Refer to the comments in the script for more information.
+The scripts that implement this system are in `opt/rainwatertornado`:
+
+* `dedup.sh`: Adds/find a file in the dedup directory and replace the original with a symbolic link
+* `check-dedup.sh`: Verify the contents of the deduplicated files against the path
+
+Refer to the comments in the scripts for more information.
 
 ## License
 

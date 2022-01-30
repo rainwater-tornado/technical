@@ -21,6 +21,12 @@
 #   have to be adjusted.
 
 FILE=$1
+
+if ! [ -f "$FILE" ]; then
+	echo "Cannot check $FILE: Not a regular file"
+	exit 1
+fi
+
 KEY_FROM_PATH="$(echo "$FILE" | sed 's/.*\([^\/]\{4,4\}\)\/\([^\/]*\)/\1\2/')"
 KEY_FROM_CONTENT=$(sha256sum "$FILE" | cut -d ' ' -f 1)
 if [ "$KEY_FROM_PATH" != "$KEY_FROM_CONTENT" ]; then

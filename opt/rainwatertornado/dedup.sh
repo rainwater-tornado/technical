@@ -31,6 +31,12 @@
 DEDUP_BASE=/mnt/rwt_data/dedup
 
 FILE=$1
+
+if ! [ -f "$FILE" ]; then
+	echo "Cannot deduplicate $FILE: Not a regular file"
+	exit 1
+fi
+
 KEY=$(sha256sum "$FILE" | cut -d ' ' -f 1)
 DEDUP_PATH="$(echo "$KEY" | cut -b 1-4)/$(echo "$KEY" | cut -b 5-)"
 DEDUP_FILE="$DEDUP_BASE/$DEDUP_PATH"

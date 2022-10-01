@@ -10,10 +10,10 @@
 #   <https://www.gnu.org/software/coreutils/>
 
 # Usage:
-# Set the DEDUP_BASE variable to the base directory for the deduplicated
-# hash-based names. Run with sh, passing the original filename as the first
-# argument. (Multiple files are not supported. To apply this across all files
-# in a torrent, use "find" or another similar utility. For example:
+# Set the DEDUP_BASE environment variable to the base directory for the
+# deduplicated hash-based names. Run with sh, passing the original filename as
+# the first argument. (Multiple files are not supported. To apply this across
+# all files in a torrent, use "find" or another similar utility. For example:
 # "find [directory] -type f -exec dedup.sh '{}' ';'")
 
 # Notes:
@@ -28,7 +28,7 @@
 #   However, the commands to extract the actual hash value from the output may
 #   have to be adjusted.
 
-DEDUP_BASE=/mnt/rwt_data/dedup
+: ${DEDUP_BASE:?Base directory not set}
 
 FILE=$1
 
